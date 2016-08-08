@@ -11,5 +11,8 @@ module.exports = {
 
     watchOptions: { // Опция для ускорения пересборки
         aggregateTimeout: 100 // default: 300
-    }
+    },
+
+    devtool: 'eval'
+
 };
