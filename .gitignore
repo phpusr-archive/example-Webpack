@@ -1,3 +1,5 @@
 /.idea
+
 /project/build.js
 /project/build.js.map
+/project/node_modules
