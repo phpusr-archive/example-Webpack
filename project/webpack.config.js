@@ -19,7 +19,19 @@ module.exports = {
     devtool: NODE_ENV == 'development' ? 'cheap-inline-module-source-map' : null,
 
     plugins: [
-        new webpack.DefinePlugin({ NODE_ENV: JSON.stringify(NODE_ENV) })
-    ]
+     new webpack.DefinePlugin({ NODE_ENV: JSON.stringify(NODE_ENV) })
+     ],
+
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            loader: 'babel',
+            query: {
+                presets: ['es2015'],
+                plugins: ['transform-runtime']
+            }
+        }]
+    }
 
 };
