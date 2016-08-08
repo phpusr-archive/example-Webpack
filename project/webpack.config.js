@@ -20,7 +20,18 @@ module.exports = {
 
     plugins: [
      new webpack.DefinePlugin({ NODE_ENV: JSON.stringify(NODE_ENV) })
-     ],
+    ],
+
+    resolve: {
+        modulesDirectories: ['node_modules'], // Где искать модули
+        extensions: ['', '.js'] // С какими расширениями
+    },
+
+    resolveLoader: {
+        modulesDirectories: ['node_modules'], // Где искать лоадеры
+        moduleTemplates: ['*-loader', '*'], // Шаблон поиска
+        extensions: ['', '.js'] // С какими расширениями
+    },
 
     module: {
         loaders: [{
