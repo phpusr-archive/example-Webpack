@@ -6,7 +6,5 @@ export default function(message) {
         console.log(message);
     }
 
-    alert(process.env.USER);
-
     alert(`Welcome ${message}`);
 };
