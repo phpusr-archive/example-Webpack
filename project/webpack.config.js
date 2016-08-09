@@ -25,7 +25,8 @@ module.exports = {
 
     plugins: [
         new webpack.NoErrorsPlugin(),
-        new webpack.DefinePlugin({ NODE_ENV: JSON.stringify(NODE_ENV) })
+        new webpack.DefinePlugin({ NODE_ENV: JSON.stringify(NODE_ENV) }),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'common' })
     ],
 
     resolve: {
