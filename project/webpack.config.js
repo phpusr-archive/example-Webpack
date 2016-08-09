@@ -7,7 +7,8 @@ module.exports = {
     context: __dirname + '/frontend',
     entry: {
         home: './home',
-        about: './about'
+        about: './about',
+        common: ['./welcome', './common'] // Экспортируется только последний
     },
     output: {
         path: __dirname + '/public',
@@ -27,9 +28,7 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({ NODE_ENV: JSON.stringify(NODE_ENV) }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'common',
-            //minChunks: 2 // Мин. кол-во модулей, необходимое для выноса общего функционала
-            chunks: ['about', 'home'] // Выносит общий функционал для описанных модулей. Для других файлов, плагин можно использовать еще раз
+            name: 'common'
         })
     ],
 
