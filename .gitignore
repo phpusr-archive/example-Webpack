@@ -1,5 +1,7 @@
 /.idea
+/*/node_modules
 
 /project/public/*.js
 /project/build.js.map
-/project/node_modules
+
+/project-2/public/js
