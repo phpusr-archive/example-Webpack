@@ -26,7 +26,11 @@ module.exports = {
     plugins: [
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({ NODE_ENV: JSON.stringify(NODE_ENV) }),
-        new webpack.optimize.CommonsChunkPlugin({ name: 'common' })
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'common',
+            //minChunks: 2 // Мин. кол-во модулей, необходимое для выноса общего функционала
+            chunks: ['about', 'home'] // Выносит общий функционал для описанных модулей. Для других файлов, плагин можно использовать еще раз
+        })
     ],
 
     resolve: {
