@@ -2,6 +2,7 @@
   "name": "webpack-project-3",
   "version": "0.0.1",
   "dependencies": {
+    "bundle-loader": "0.5.4",
     "node-static": "0.7.8",
     "webpack": "1.13.1"
   }

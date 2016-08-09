@@ -1,18 +1,17 @@
 'use strict';
 
-let moduleName = location.pathname.slice(1); // /home
+let moduleName = location.pathname.slice(1);
 console.log('moduleName:', moduleName);
 
-let context = require.context('./routes', false, /\.js$/);
-
-context.keys().forEach(function(path) {
-    let module = context(path);
-    module();
-});
-
+let handler;
 try {
-    let route = context('./' + moduleName);
-    route();
+    handler = require('bundle!./routes/' + moduleName);
 } catch(e) {
-    alert(e);
+    alert('No such path');
+}
+
+if (handler) {
+    handler(function(route) {
+        route();
+    });
 }
