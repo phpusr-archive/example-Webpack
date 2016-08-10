@@ -2,25 +2,25 @@
 
 module.exports = {
     context: __dirname + '/frontend',
-    entry: './app',
+    entry: './home',
 
     output: {
         path: __dirname + '/public',
-        filename: 'app.js'
+        filename: 'home.js'
     },
 
     module: {
         loaders: [{
-            test: /\.js$/,
-            //exclude: /(node_modules|bower_components)/, // Отключение преобразования бабалем зависимостей
-            include: __dirname + '/frontend', // Включение только той директории, которую нужно обрабатывать (можно массив указывать)
-            loader: 'babel',
-            query: {
-                presets: ['es2015'],
-            }
-        }],
+            test: /old.js$/,
+            loader: "imports?workSettings=>{delay:500}!exports?Work"
+        }]
+    },
 
-        noParse: /angular\\angular.js/ // Отключение парсинга больших библиотек, состоящих из одного файла
+    resolve: {
+        root: __dirname + '/vendor', // Задает директорию для поиска скриптов помимо node_modules
+        alias: {
+            old: 'old/dist/old' // Задает алиас "old" вместо "old/dist/old" для использования модуля
+        }
     }
 
 };
