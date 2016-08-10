@@ -1,7 +1,5 @@
 'use strict';
 
-let _ = require('lodash');
-
 let users = [
     { id: 'abcd', name: 'Vasya' },
     { id: 'defa', name: 'Petya' },
