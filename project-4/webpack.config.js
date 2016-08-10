@@ -21,7 +21,7 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.ContextReplacementPlugin(/node_modules\\moment\\locale/, /ru|en-gb/)
+        new webpack.IgnorePlugin(/\.\/locale/)
     ],
 
     resolve: {
