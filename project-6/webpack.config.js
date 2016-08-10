@@ -8,6 +8,7 @@ module.exports = {
     entry: './main',
     output: {
         path: path.join(__dirname, '/public'),
+        publicPath: '/',
         filename: '[name].js'
     },
 
