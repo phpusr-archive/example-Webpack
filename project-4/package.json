@@ -1,0 +1,9 @@
+{
+  "name": "webpack-project-4",
+  "version": "0.0.1",
+  "dependencies": {
+    "moment": "2.14.1",
+    "node-static": "^0.7.8",
+    "webpack": "^1.13.1"
+  }
+}
