@@ -1,0 +1,33 @@
+.minus
+  background-image url(minus.svg)
+
+.plus
+  background-image url(plus.svg)
+
+.menu
+
+  .title
+    @extend .plus
+    padding 0 6px 0 16px
+
+    background-position left 1px
+    background-repeat no-repeat
+    background-size 14px
+
+    font-weight bold
+    cursor pointer
+
+  .list
+    display none
+    margin 0
+
+
+  a
+    color blue
+
+  &.open
+    .list
+      display block
+
+    .title
+      @extend .minus
