@@ -24,8 +24,11 @@ module.exports = {
             test: /\.css$/,
             loader: 'style-loader!css-loader!postcss-loader'
         }, {
-            test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/, // loader для файлов, при длине файла < 4096 байт, используется data url
-            loader: 'url?name=[path][name].[ext]&limit=4096'
+            test: /\.styl$/,
+            loader: 'style-loader!css-loader!postcss-loader!stylus?resolve url'
+        }, {
+            test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+            loader: 'file?name=[path][name].[ext]'
         }],
     },
     postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
