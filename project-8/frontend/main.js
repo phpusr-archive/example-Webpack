@@ -1,9 +1,11 @@
 'use strict';
 
-require.ensure([], function() {
-    let Menu = require('./menu').default;
+let Menu;
+let pandaMenu;
 
-    let pandaMenu = new Menu({
+function showMenu() {
+    Menu = require('./menu').default;
+    pandaMenu = new Menu({
         title: 'Меню панды',
         items: [{
             text: 'Яйца',
@@ -16,6 +18,14 @@ require.ensure([], function() {
             href: '#bamboo'
         }]
     });
-
     document.body.appendChild(pandaMenu.elem);
-});
+}
+showMenu();
+
+if (module.hot) { // Для того, чтобы в продакшэне код удалился
+    module.hot.accept('./menu', () => {
+        document.body.removeChild(pandaMenu.elem);
+        showMenu();
+    });
+}
+
