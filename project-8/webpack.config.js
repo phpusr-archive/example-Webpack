@@ -37,6 +37,10 @@ module.exports = {
     devServer: {
         host: 'localhost', // default
         port: 8080, // default
-        contentBase: path.join(__dirname, 'backend') // Директория откуда брать контент
+        proxy: [{
+            path: /.*/,
+            target: 'http://localhost:3000'
+        }],
+        contentBase: path.join(__dirname, 'backend')
     }
 };
